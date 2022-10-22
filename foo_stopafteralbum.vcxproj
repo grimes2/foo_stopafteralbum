@@ -177,13 +177,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="resource.hpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="foo_stopafteralbum.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="foo_stopafteralbum.rc" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\foobar2000-sdk\foobar2000\foobar2000_component_client\foobar2000_component_client.vcxproj">
