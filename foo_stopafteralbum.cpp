@@ -78,7 +78,7 @@ class mainmenu_mycommands : public mainmenu_commands {
 	}
 	virtual t_uint32 get_sort_priority()
 	{
-		return sort_priority_dontcare;
+		return 0x80000000;
 	}
 	bool is_checked(t_uint32 p_index)
 	{
@@ -115,14 +115,14 @@ public:
 			}
 		}
 	}
-	virtual void on_playback_stop(play_control::t_stop_reason p_reason) {}
-	virtual void on_playback_pause(bool p_state) {}
-	virtual void on_playback_starting(play_control::t_track_command p_command, bool p_paused) {}
-	virtual void on_playback_seek(double p_time) {}
-	virtual void on_playback_edited(metadb_handle_ptr p_track) {}
-	virtual void on_playback_dynamic_info(const file_info& info) {}
-	virtual void on_playback_dynamic_info_track(const file_info& info) {}
-	virtual void on_playback_time(double p_time) {}
-	virtual void on_volume_change(float p_new_val) {}
+	virtual void on_playback_stop(play_control::t_stop_reason) {}
+	virtual void on_playback_pause(bool) {}
+	virtual void on_playback_starting(play_control::t_track_command, bool) {}
+	virtual void on_playback_seek(double) {}
+	virtual void on_playback_edited(metadb_handle_ptr) {}
+	virtual void on_playback_dynamic_info(const file_info&) {}
+	virtual void on_playback_dynamic_info_track(const file_info&) {}
+	virtual void on_playback_time(double) {}
+	virtual void on_volume_change(float) {}
 };
 static play_callback_static_factory_t<play_callback_stopafteralbum> g_play_callback_stopafteralbum;
