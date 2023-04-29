@@ -95,15 +95,15 @@ public:
 	unsigned get_flags() { return flag_on_playback_new_track; }
 	virtual void FB2KAPI on_playback_new_track(metadb_handle_ptr p_track)
 	{
-		titleformat_object::ptr titleformat;
-		titleformat_compiler::get()->compile_safe_ex(titleformat, "%tracknumber%", "<ERROR>");
-		p_track->format_title(nullptr, tracknumber, titleformat, nullptr);
-		titleformat_object::ptr titleformat2;
-		titleformat_compiler::get()->compile_safe_ex(titleformat2, "%totaltracks%", "<ERROR>");
-		p_track->format_title(nullptr, totaltracks, titleformat2, nullptr);
-		tracknumber2 = atoi(tracknumber);
-		totaltracks2 = atoi(totaltracks);
 		if (cfg_menu_stopalbum_enabled) {
+			titleformat_object::ptr titleformat;
+			titleformat_compiler::get()->compile_safe_ex(titleformat, "%tracknumber%", "<ERROR>");
+			p_track->format_title(nullptr, tracknumber, titleformat, nullptr);
+			titleformat_object::ptr titleformat2;
+			titleformat_compiler::get()->compile_safe_ex(titleformat2, "%totaltracks%", "<ERROR>");
+			p_track->format_title(nullptr, totaltracks, titleformat2, nullptr);
+			tracknumber2 = atoi(tracknumber);
+			totaltracks2 = atoi(totaltracks);
 			if (tracknumber2 == totaltracks2 && (pfc::string_is_numeric(tracknumber) || pfc::string_is_numeric(totaltracks)))
 			{
 				static_api_ptr_t<playback_control>()->set_stop_after_current(true);
